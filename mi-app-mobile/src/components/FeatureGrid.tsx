@@ -1,19 +1,25 @@
-import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import {
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  useWindowDimensions,
+} from "react-native";
 
-import { Colors } from '@/src/constants/colors';
-import { useColorScheme } from '@/src/hooks/useColorScheme';
-import type { FeatureTile } from '@/src/data/options';
+import { Colors } from "@/src/constants/colors";
+import { useColorScheme } from "@/src/hooks/useColorScheme";
+import type { FeatureTile } from "@/src/data/options";
 
 type FeatureGridProps = {
   items: FeatureTile[];
-  onPressItem: (route: FeatureTile['route']) => void;
+  onPressItem: (route: FeatureTile["route"]) => void;
 };
 
 export function FeatureGrid({ items, onPressItem }: FeatureGridProps) {
   const { width } = useWindowDimensions();
   const colorScheme = useColorScheme();
-  const palette = Colors[colorScheme === 'dark' ? 'dark' : 'light'];
-  const columns = width >= 1120 ? 3 : width >= 700 ? 2 : 1;
+  const palette = Colors[colorScheme === "dark" ? "dark" : "light"];
+  const columns = width >= 700 ? 1 : 1;
 
   return (
     <View style={styles.grid}>
@@ -24,15 +30,20 @@ export function FeatureGrid({ items, onPressItem }: FeatureGridProps) {
           style={({ pressed }) => [
             styles.card,
             {
-              width: columns === 1 ? '100%' : `${100 / columns}%`,
+              width: columns === 1 ? "100%" : `${100 / columns}%`,
               backgroundColor: palette.surface,
               borderColor: palette.border,
               opacity: pressed ? 0.92 : 1,
             },
-          ]}>
+          ]}
+        >
           <View style={[styles.pill, { backgroundColor: item.accent }]} />
-          <Text style={[styles.title, { color: palette.text }]}>{item.title}</Text>
-          <Text style={[styles.description, { color: palette.muted }]}>{item.description}</Text>
+          <Text style={[styles.title, { color: palette.text }]}>
+            {item.title}
+          </Text>
+          <Text style={[styles.description, { color: palette.muted }]}>
+            {item.description}
+          </Text>
         </Pressable>
       ))}
     </View>
@@ -41,8 +52,8 @@ export function FeatureGrid({ items, onPressItem }: FeatureGridProps) {
 
 const styles = StyleSheet.create({
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
     gap: 12,
   },
   card: {
@@ -59,7 +70,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 17,
-    fontWeight: '800',
+    fontWeight: "800",
   },
   description: {
     fontSize: 14,
