@@ -13,7 +13,7 @@ export function FeatureGrid({ items, onPressItem }: FeatureGridProps) {
   const { width } = useWindowDimensions();
   const colorScheme = useColorScheme();
   const palette = Colors[colorScheme === 'dark' ? 'dark' : 'light'];
-  const columns = 1;
+  const columns = width >= 1120 ? 3 : width >= 700 ? 2 : 1;
 
   return (
     <View style={styles.grid}>
