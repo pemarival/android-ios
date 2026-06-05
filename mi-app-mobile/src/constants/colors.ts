@@ -1,0 +1,26 @@
+export const Colors = {
+  light: {
+    text: '#0F172A',
+    background: '#F7F7FB',
+    surface: '#FFFFFF',
+    muted: '#667085',
+    tint: '#1D4ED8',
+    tintSoft: 'rgba(29, 78, 216, 0.12)',
+    border: '#E5E7EB',
+    success: '#16A34A',
+    warning: '#D97706',
+    danger: '#DC2626',
+  },
+  dark: {
+    text: '#F8FAFC',
+    background: '#0B1220',
+    surface: '#111A2E',
+    muted: '#94A3B8',
+    tint: '#60A5FA',
+    tintSoft: 'rgba(96, 165, 250, 0.14)',
+    border: '#22304C',
+    success: '#4ADE80',
+    warning: '#FBBF24',
+    danger: '#F87171',
+  },
+} as const;
